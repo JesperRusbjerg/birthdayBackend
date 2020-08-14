@@ -10,6 +10,7 @@ let names = ["Jonas R", "Oliver", "Jesper", "Mathias", "Patrick", "Frederik", "M
       let shuffled = shufflePeople(names)
 
 app.get('/', (req, res) => {
+  console.log(JSON.stringify(shuffled))
   res.send(JSON.stringify(shuffled))
 })
 
