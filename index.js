@@ -1,4 +1,5 @@
 const express = require('express')
+var cors = require('cors')
 const app = express()
 const port = 3010
 
@@ -9,9 +10,15 @@ let names = ["Jonas R", "Oliver", "Jesper", "Mathias", "Patrick", "Frederik", "M
 
       let shuffled = shufflePeople(names)
 
+      app.use(cors())
+
 app.get('/', (req, res) => {
   console.log(JSON.stringify(shuffled))
-  res.send(JSON.stringify(shuffled))
+  res.json(JSON.stringify(shuffled))
+})
+
+app.get('/test', (req, res) => {
+  res.json('hej mand')
 })
 
 app.get('/hemmeligport', (req, res) => {
